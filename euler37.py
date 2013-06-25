@@ -6,17 +6,20 @@ def truncatable_primes(prime, prime_numbers):
    global trunc_primes 
    for val in prime_numbers[4:]:
       flag = 1
-      print "start"
-      print val
-      for i in range(len(str(val))):
-	 print "---"
-	 print str(val)[i:]
-	 print str(val)[:-i] 
-
-	 if (prime[int(str(val)[i:])] == True and prime[int(str(val)[-i:])] == True):
+      temp = str(val)
+      for i in range(0,len(temp)):
+	 if (prime[int(temp[i:])] == True):
             a = 1 
          else:
             flag = 0
+      
+      temp = str(val)
+      for i in range(1,len(temp)):
+	 if (prime[int(temp[:-i])] == True):
+            a = 1 
+         else:
+            flag = 0
+
 
       if (flag == 1):
 	 trunc_primes.append(val)
@@ -28,8 +31,6 @@ def truncatable_primes(prime, prime_numbers):
 if __name__ == "__main__":
    (prime,prime_numbers) = primes(1000000)
    temp = truncatable_primes(prime,prime_numbers)
-   answer = 0
+   answer = sum(temp) 
    print temp
-   for i in temp:
-      answer += i
    print answer
