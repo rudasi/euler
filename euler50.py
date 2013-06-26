@@ -8,13 +8,13 @@ def prime_sum(primes):
       for i in range(0, primes.index(prime)):
          val = 0
 	 for j in range(i,primes.index(prime)):
+	    val += primes[j]
 	    #if ((str(i)+","+str(j)) in prime_dict.keys()):
 	       #val = prime_dict[str(i)+","+str(j)]
 	    #else:
 	       #val += primes[j]
 	       #prime_dict[str(i)+","+str(j)] = val
 
-            val 
             if (val == prime):
 	       if ((j - i + 1) > length):
 		  print val
